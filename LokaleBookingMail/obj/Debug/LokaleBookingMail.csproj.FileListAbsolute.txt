@@ -1,1 +1,17 @@
 C:\Users\Mich\Documents\Visual Studio 2013\Projects\H3\LokaleBookingMail\LokaleBookingMail\bin\Debug\LokaleBookingMail.exe.config
+C:\Users\Minnimols\Documents\GitHub\LokaleBookingMail\LokaleBookingMail\bin\Debug\LokaleBookingMail.exe.config
+C:\Users\Minnimols\Documents\GitHub\LokaleBookingMail\LokaleBookingMail\obj\Debug\LokaleBookingMail.csprojResolveAssemblyReference.cache
+C:\Users\Minnimols\Documents\GitHub\LokaleBookingMail\LokaleBookingMail\obj\Debug\LokaleBookingMail.Properties.Resources.resources
+C:\Users\Minnimols\Documents\GitHub\LokaleBookingMail\LokaleBookingMail\obj\Debug\LokaleBookingMail.csproj.GenerateResource.Cache
+C:\Users\Minnimols\Documents\GitHub\LokaleBookingMail\LokaleBookingMail\bin\Debug\LokaleBookingMail.exe
+C:\Users\Minnimols\Documents\GitHub\LokaleBookingMail\LokaleBookingMail\bin\Debug\LokaleBookingMail.pdb
+C:\Users\Minnimols\Documents\GitHub\LokaleBookingMail\LokaleBookingMail\bin\Debug\EntityFramework.dll
+C:\Users\Minnimols\Documents\GitHub\LokaleBookingMail\LokaleBookingMail\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Minnimols\Documents\GitHub\LokaleBookingMail\LokaleBookingMail\bin\Debug\Mail.dll
+C:\Users\Minnimols\Documents\GitHub\LokaleBookingMail\LokaleBookingMail\bin\Debug\Model.dll
+C:\Users\Minnimols\Documents\GitHub\LokaleBookingMail\LokaleBookingMail\bin\Debug\Model.pdb
+C:\Users\Minnimols\Documents\GitHub\LokaleBookingMail\LokaleBookingMail\bin\Debug\EntityFramework.xml
+C:\Users\Minnimols\Documents\GitHub\LokaleBookingMail\LokaleBookingMail\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Minnimols\Documents\GitHub\LokaleBookingMail\LokaleBookingMail\bin\Debug\Mail.xml
+C:\Users\Minnimols\Documents\GitHub\LokaleBookingMail\LokaleBookingMail\obj\Debug\LokaleBookingMail.exe
+C:\Users\Minnimols\Documents\GitHub\LokaleBookingMail\LokaleBookingMail\obj\Debug\LokaleBookingMail.pdb

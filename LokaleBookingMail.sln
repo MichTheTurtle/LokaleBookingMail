@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LokaleBookingMail", "LokaleBookingMail\LokaleBookingMail.csproj", "{A8536625-338F-4E29-AEA3-2372A9A10021}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "..\..\..\..\GitHub\LokaleBooking\LokaleBookingSystem\Model\Model.csproj", "{179D9395-4B36-4C47-B208-81D34B0DD830}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{179D9395-4B36-4C47-B208-81D34B0DD830}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
