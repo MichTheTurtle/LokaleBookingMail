@@ -23,7 +23,7 @@ namespace LokaleBookingMail
             Thread checkBookingForMail = new Thread(new ThreadStart(loopCheckDb));
             checkBookingForMail.Start();
 
-            Thread checkMailForBookings = new Thread(new ThreadStart(loopCheckDb));
+            Thread checkMailForBookings = new Thread(new ThreadStart(loopCheckMail));
             checkMailForBookings.Start();
         }
 
@@ -53,10 +53,14 @@ namespace LokaleBookingMail
 
         private static void loopCheckMail()
         {
-
+            while(true)
+            {
+                checkInbox();
+                Thread.Sleep(5000);
+            }
         }
 
-        private static void inbox()
+        private static void checkInbox()
         {
             using (Imap imap = new Imap())
             {
@@ -66,17 +70,39 @@ namespace LokaleBookingMail
                 imap.SelectInbox();
 
                 List<long> uids = imap.Search(Flag.Unseen);
-                foreach (long uid in uids)
-                {
-                    var eml = imap.GetMessageByUID(uid);
-                    IMail mail = new MailBuilder().CreateFromEml(eml);
 
-                    MessageBox.Show(mail.Subject);
-                    Console.WriteLine(mail.Subject);
-                    Console.WriteLine(mail.Text);
+                using (Context ctx = new Context())
+                {
+                    foreach (long uid in uids)
+                    {
+                        var eml = imap.GetMessageByUID(uid);
+                        IMail mail = new MailBuilder().CreateFromEml(eml);
+
+                        Bruger bruger = ctx.Brugere.Where(b => b.Mail == mail.Sender.Address).First();
+
+                        Booking booking = new Booking();
+
+                        booking.Bruger = bruger;
+                        booking.SendtMail = false;
+
+                        string lokaleNr = mail.Text.Split(' ')[1];
+
+                        Lokale lokale = ctx.Lokaler.Where(b => b.LokaleNavn == lokaleNr).First();
+
+                        DateTime start = DateTime.Parse(mail.Text.Split(' ')[3]);
+                        DateTime slut = DateTime.Parse(mail.Text.Split(' ')[5]);
+
+                        booking.Lokale = lokale;
+                        booking.StartTidspunkt = start;
+                        booking.SlutTidspunkt = slut;
+
+                        ctx.Bookings.Add(booking);
+                    }
+                    imap.Close();
+                    ctx.SaveChanges();
                 }
-                imap.Close();
             }
+
         }
 
         private static void sendMail(string fornavn, string efternavn, string mail, string start, string slut, string lokale)
@@ -97,7 +123,7 @@ namespace LokaleBookingMail
                 if (result.Status == SendMessageStatus.Success)
                 {
                     // Message was sent.
-                    MessageBox.Show("mail sent");
+                    Console.WriteLine("Mail sent");
                 }
 
                 smtp.Close();
