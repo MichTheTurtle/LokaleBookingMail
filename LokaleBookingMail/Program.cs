@@ -20,7 +20,11 @@ namespace LokaleBookingMail
     {
         static void Main()
         {
-            loopCheckDb();
+            Thread checkBookingForMail = new Thread(new ThreadStart(loopCheckDb));
+            checkBookingForMail.Start();
+
+            Thread checkMailForBookings = new Thread(new ThreadStart(loopCheckDb));
+            checkMailForBookings.Start();
         }
 
         private static void loopCheckDb()
@@ -31,24 +35,25 @@ namespace LokaleBookingMail
                 {
                     var bookings = from b in ctx.Bookings select b;
 
-                    
-
                     foreach (var book in bookings.Where(b => b.SendtMail == false))
                     {
-                        //Bruger bruger = book.Bruger;
                         sendMail(book.Bruger.Fornavn, book.Bruger.Efternavn, book.Bruger.Mail, book.StartTidspunkt.ToString("dd-MM-yyyy"), book.SlutTidspunkt.ToString("dd-MM-yyyy"), book.Lokale.LokaleNavn);
 
                         Booking books = (from s in ctx.Bookings
                                          where s.BookingID == book.BookingID
                                          select s).FirstOrDefault();
                         books.SendtMail = true;
-
-                        ctx.SaveChanges();
                     }
+                    ctx.SaveChanges();
                 }
 
                 Thread.Sleep(5000);
             }
+        }
+
+        private static void loopCheckMail()
+        {
+
         }
 
         private static void inbox()
